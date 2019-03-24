@@ -90,7 +90,7 @@ collectd ALL=(root) NOPASSWD: /usr/bin/wg show all transfer
 ## Development
 
 A _Vagrant_ `Vagrantfile` is included which will provision two nodes with
-WireGuard, _collectd_, and `collectd-wireguard.sh`.
+_WireGuard_, _collectd_, and _collectd-wireguard_.
 
 _collectd_ is configured to write to `/var/lib/collectd/csv/` in CSV format.
 
