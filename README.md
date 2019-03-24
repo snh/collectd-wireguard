@@ -74,7 +74,7 @@ Add the following to your `collectd.conf`, which is often located at
 LoadPlugin exec
 
 <Plugin exec>
-        Exec collectd "/usr/share/collectd/collectd-wireguard.sh"
+  Exec collectd "/usr/share/collectd/collectd-wireguard.sh"
 </Plugin>
 ```
 
@@ -86,6 +86,13 @@ following to your `sudoers` file using `visudo`:
 ```
 collectd ALL=(root) NOPASSWD: /usr/bin/wg show all transfer
 ```
+
+## Development
+
+A _Vagrant_ `Vagrantfile` is included which will provision two nodes with
+WireGuard, _collectd_, and `collectd-wireguard.sh`.
+
+_collectd_ is configured to write to `/var/lib/collectd/csv/` in CSV format.
 
 ## License
 
@@ -112,3 +119,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
+
