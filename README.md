@@ -65,7 +65,7 @@ environment and/or operating system/distribution.
 Place `wireguard-collectd.sh` in a suitable location, accessible by the user
 running this script. For this example `/usr/share/collectd/` is used.
 
-### _collectd_ configuration
+### _collectd_
 
 Add the following to your `collectd.conf`, which is often located at
 `/etc/collectd/collectd.conf`:
@@ -78,7 +78,7 @@ LoadPlugin exec
 </Plugin>
 ```
 
-### _sudoers_ configuration
+### _sudoers_
 
 To allow the user running the script to run `wg show all transfer`, add the
 following to your `sudoers` file using `visudo`:
