@@ -1,4 +1,4 @@
-# wireguard-collectd
+# collectd-wireguard
 
 A simple shell script which when used with the [_exec_](https://collectd.org/wiki/index.php/Plugin:Exec)
 plugin for [_collectd_](https://collectd.org/), will retrieve per-peer [_WireGuard_](https://www.wireguard.com/)
@@ -30,10 +30,10 @@ peer: z6xFfD7J7oVHWGRO4p3YDyOW2FYuTIZPFjDs4CshaVI=
   allowed ips: 10.0.1.2/32
 ```
 
-### `wireguard-collectd.sh` output
+### `collectd-wireguard.sh` output
 
 ```
-$ COLLECTD_HOSTNAME="example-host" COLLECTD_INTERVAL=5 ./wireguard-collectd.sh
+$ COLLECTD_HOSTNAME="example-host" COLLECTD_INTERVAL=5 ./collectd-wireguard.sh
 PUTVAL "example-host/wireguard-wg0/if_octets-eynPhbDg/Ca9Z4Nmk37C6TAMwtdsiYIEh1OEzP5z0Es=" interval=5 N:12182053116:60742952
 PUTVAL "example-host/wireguard-wg1/if_octets-z6xFfD7J7oVHWGRO4p3YDyOW2FYuTIZPFjDs4CshaVI=" interval=5 N:0:0
 ```
@@ -60,9 +60,9 @@ _sudoers_ with the appropriate username.
 These instructions may require some tweaking depending on your specific
 environment and/or operating system/distribution.
 
-### _wireguard-collectd_
+### _collectd-wireguard_
 
-Place `wireguard-collectd.sh` in a suitable location, accessible by the user
+Place `collectd-wireguard.sh` in a suitable location, accessible by the user
 running this script. For this example `/usr/share/collectd/` is used.
 
 ### _collectd_
@@ -74,7 +74,7 @@ Add the following to your `collectd.conf`, which is often located at
 LoadPlugin exec
 
 <Plugin exec>
-        Exec collectd "/usr/share/collectd/wireguard-collectd.sh"
+        Exec collectd "/usr/share/collectd/collectd-wireguard.sh"
 </Plugin>
 ```
 
