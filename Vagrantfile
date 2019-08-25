@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-  config.vm.box = "debian/stretch64"
+  config.vm.box = "debian/buster64"
 
   config.vm.provider "virtualbox" do |vb|
     vb.memory = "256"
@@ -15,7 +15,7 @@ Vagrant.configure("2") do |config|
       node.vm.provision "shell", inline: <<-SHELL
         apt-get update
         apt-get upgrade
-        apt-get install --yes git libmnl-dev libelf-dev linux-headers-$(uname -r) build-essential pkg-config collectd-core
+        apt-get install --yes git libmnl-dev libelf-dev linux-headers-$(uname -r) build-essential pkg-config collectd-core bc
 
         git clone https://git.zx2c4.com/WireGuard
         cd WireGuard/src
@@ -34,4 +34,3 @@ Vagrant.configure("2") do |config|
     end
   end
 end
-
