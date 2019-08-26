@@ -27,13 +27,13 @@ interval="${COLLECTD_INTERVAL:-60}"
 
 [ $UID == 0 ] || sudo="sudo"
 
-if [ -z "$($sudo wg show all transfer)" ]; then
-  echo "Error: No peers are configured." >&2
-  exit 1
-fi
-
 while sleep "$interval"; do
   while read -r interface peer transfer_rx transfer_tx; do
+    if [ -z "$peer" ]; then
+      echo "Error: No peers are configured." >&2
+      exit 1
+    fi
+
     echo "PUTVAL \"$hostname/wireguard-$interface/if_octets-$peer\" interval=$interval N:$transfer_rx:$transfer_tx"
   done <<< $($sudo wg show all transfer)
 done
