@@ -74,13 +74,15 @@ Add the following to your `collectd.conf`, which is often located at
 LoadPlugin exec
 
 <Plugin exec>
-  Exec collectd "/usr/share/collectd/collectd-wireguard.sh"
+  Exec "collectd" "/usr/share/collectd/collectd-wireguard.sh"
 </Plugin>
 ```
 
+This example executes the script as the `collectd` user.
+
 ### _sudoers_
 
-To allow the user running the script to run `wg show all transfer`, add the
+To allow the user running the script to execute `wg show all transfer`, add the
 following to your `sudoers` file using `visudo`:
 
 ```
